@@ -69,3 +69,21 @@ p {
     width: 100px;
     margin: 0 auto;
 }
+
+.vol-icon {
+    width: 50px;
+}
+
+.vol-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#volumeNum {
+    font-size: 20px;
+}
+
+#volume {
+    margin: 0 20px;
+}

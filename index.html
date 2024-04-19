@@ -49,7 +49,9 @@
             <input type="radio" id="mhspeed" name="speed" value="2" />
             <label for="mhspeed">2</label>
         </form>
-        <label>ボリューム<input type="range" min="0" max="100" name="volume" id="volume" value="50" />
+        <label class="vol-wrapper">
+            <img class="vol-icon" src="./images/mute.png" alt="ミュート">
+            <input type="range" min="0" max="100" name="volume" id="volume" value="50" />
             <span id="volumeNum"></span>
         </label>
     </nav>
@@ -152,14 +154,17 @@
 
         //ミュートイベント
         let onMuteBtn = document.querySelector("#mute");
+        const volIcon = document.querySelector(".vol-icon");
         onMuteBtn.addEventListener("click", function () {
             onMute();
             if (onMuteBtn.innerText === "ミュート") {
                 onMuteBtn.innerText = "ミュート解除";
                 icon.setAttribute("src", "./images/mute.png");
+                volIcon.setAttribute("src", "./images/mute.png");
             } else {
                 onMuteBtn.innerText = "ミュート";
                 icon.setAttribute("src", "./images/volume.png");
+                volIcon.setAttribute("src", "./images/volume.png");
             }
         });
 
