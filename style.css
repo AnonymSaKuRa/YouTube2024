@@ -1,0 +1,71 @@
+body {
+    text-align: center;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px auto 30px;
+    padding-left: 0;
+    list-style: none;
+}
+
+li {
+    width: fit-content;
+    margin: 10px 30px;
+    padding: 10px 30px;
+    border: solid 3px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+}
+
+li:hover {
+    border: solid 3px cadetblue;
+    color: cadetblue;
+}
+
+#MovieId {
+    margin: 30px 0;
+    padding: 10px;
+    border: solid 2px;
+    font-size: 16px;
+}
+
+#MovieId:hover {
+    border: solid 2px cadetblue;
+    cursor: pointer;
+}
+
+#doSpeed {
+    margin-bottom: 20px;
+}
+
+#searchBtn {
+    width: 80px;
+    padding: 3px;
+    font-size: 20px;
+}
+
+#searchBtn:hover {
+    cursor: pointer;
+}
+
+#ytSearch {
+    width: 30vw;
+    padding: 5px;
+    border: solid 2px;
+    font-size: 20px;
+}
+
+p {
+    font-size: 30px;
+}
+
+.icon {
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+}
