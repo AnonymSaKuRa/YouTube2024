@@ -12,7 +12,7 @@
     <!-- 1. ここの<div>タグがYoutubeの<iframe>に置き換わる。 -->
     <div id="player"></div>
 
-    <form>
+    <form class="searchArea">
         <input type="search" id="ytSearch" value="TRiDENT" />
         <button id="searchBtn">検索</button>
     </form>
@@ -36,24 +36,30 @@
             <li id="do10sNext">10秒先へ</li>
         </ul>
         <img src="./images/play.png" alt="再生" class="icon">
-        <p>再生速度</p>
-        <form id="doSpeed">
-            <input type="radio" id="mslow" name="speed" value="0.25" />
-            <label for="mslow">0.25</label>
-            <input type="radio" id="slow" name="speed" value="0.5" />
-            <label for="slow">0.5</label>
-            <input type="radio" id="normal" name="speed" value="1.0" checked />
-            <label for="normal">1</label>
-            <input type="radio" id="hspeed" name="speed" value="1.5" />
-            <label for="hspeed">1.5</label>
-            <input type="radio" id="mhspeed" name="speed" value="2" />
-            <label for="mhspeed">2</label>
-        </form>
-        <label class="vol-wrapper">
-            <img class="vol-icon" src="./images/mute.png" alt="ミュート">
-            <input type="range" min="0" max="100" name="volume" id="volume" value="50" />
-            <span id="volumeNum"></span>
-        </label>
+        <div class="flex">
+            <form id="doSpeed">
+                <input type="radio" id="mslow" name="speed" value="0.25" />
+                <label for="mslow">0.25</label>
+                <input type="radio" id="slow" name="speed" value="0.5" />
+                <label for="slow">0.5</label>
+                <input type="radio" id="normal" name="speed" value="1.0" checked />
+                <label for="normal">1</label>
+                <input type="radio" id="hspeed" name="speed" value="1.5" />
+                <label for="hspeed">1.5</label>
+                <input type="radio" id="mhspeed" name="speed" value="2" />
+                <label for="mhspeed">2</label>
+            </form>
+            <label>ボリューム<input type="range" min="0" max="100" name="volume" id="volume" value="50" />
+                <span id="volumeNum"></span>
+            </label>
+        </div>
+
+        <p class="text">ミュート切り替え</p>
+        <div class="changeBtn">
+            <p class="on">ON</p>
+            <p class="off">OFF</p>
+            <p class="button"></p>
+        </div>
     </nav>
 
     <script>
@@ -154,17 +160,14 @@
 
         //ミュートイベント
         let onMuteBtn = document.querySelector("#mute");
-        const volIcon = document.querySelector(".vol-icon");
         onMuteBtn.addEventListener("click", function () {
             onMute();
             if (onMuteBtn.innerText === "ミュート") {
                 onMuteBtn.innerText = "ミュート解除";
                 icon.setAttribute("src", "./images/mute.png");
-                volIcon.setAttribute("src", "./images/mute.png");
             } else {
                 onMuteBtn.innerText = "ミュート";
                 icon.setAttribute("src", "./images/volume.png");
-                volIcon.setAttribute("src", "./images/volume.png");
             }
         });
 
@@ -265,6 +268,12 @@
             // console.log(ytSearchVal);
             e.preventDefault(); //検索ボタンの送信をストップしておく。
             ytSearch(ytSearchVal);
+        });
+
+        // ミュート切り替えボタン
+        const button = document.querySelector(".button");
+        button.addEventListener("click", () => {
+            button.classList.toggle("active");
         });
     </script>
 

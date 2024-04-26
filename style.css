@@ -15,23 +15,44 @@ li {
     width: fit-content;
     margin: 10px 30px;
     padding: 10px 30px;
-    border: solid 3px;
-    border-radius: 30px;
+    border: solid 2px;
     cursor: pointer;
     font-weight: bold;
     transition: .3s;
+    position: relative;
+    z-index: 1;
+}
+
+li::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: cadetblue;
+    z-index: -1;
+    transform: scale(0, 1);
+    transform-origin: right top;
+    transition: transform .3s;
 }
 
 li:hover {
-    border: solid 3px cadetblue;
-    color: cadetblue;
+    border: solid 2px cadetblue;
+    color: #fff;
+}
+
+li:hover::after {
+    transform-origin: left top;
+    transform: scale(1, 1);
 }
 
 #MovieId {
     margin: 30px 0;
     padding: 10px;
     border: solid 2px;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 #MovieId:hover {
@@ -39,29 +60,57 @@ li:hover {
     cursor: pointer;
 }
 
-#doSpeed {
-    margin-bottom: 20px;
-}
-
 #searchBtn {
     width: 80px;
     padding: 3px;
+    border: solid 2px black;
     font-size: 20px;
+    transition: .3s;
 }
 
 #searchBtn:hover {
+    border: solid 2px cadetblue;
+    color: cadetblue;
     cursor: pointer;
 }
 
 #ytSearch {
     width: 30vw;
-    padding: 5px;
+    margin-right: 5px;
+    padding: 6px;
     border: solid 2px;
     font-size: 20px;
 }
 
-p {
-    font-size: 30px;
+#ytSearch:hover {
+    border: solid 2px cadetblue;
+}
+
+.changeBtn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 20px 150px 30px 5px;
+    border: solid 2px;
+    position: relative;
+}
+
+.button {
+    margin: 0 10px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: cadetblue;
+    color: #fff;
+    transform: translateX(3px);
+    transition: .3s;
+}
+
+.button.active {
+    transform: translateX(140px);
+    background-color: #f7a372;
+}
+
+.button:hover {
+    cursor: pointer;
 }
 
 .icon {
@@ -70,20 +119,47 @@ p {
     margin: 0 auto;
 }
 
-.vol-icon {
-    width: 50px;
+label {
+    font-size: 24px;
 }
 
-.vol-wrapper {
+#doSpeed {
+    margin-right: 100px;
+}
+
+.flex {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
 }
 
-#volumeNum {
-    font-size: 20px;
+.searchArea {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
 }
 
-#volume {
-    margin: 0 20px;
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.on {
+    position: absolute;
+    left: 15px;
+    bottom: -15px;
+}
+
+.off {
+    position: absolute;
+    left: 150px;
+    bottom: -15px;
+}
+
+.text {
+    margin-bottom: 0;
+    font-size: 28px;
 }
